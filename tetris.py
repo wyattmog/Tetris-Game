@@ -6,6 +6,7 @@ class Game:
     def __init__(self):
         #Setup window size based on SCALE value.
         turtle.setup(SCALE*12+20, SCALE*22+20)
+        
         self.occupied = [
                         [None, None, None, None, None, None, None, None, None, None,],
                         [None, None, None, None, None, None, None, None, None, None,],
@@ -92,7 +93,6 @@ class Game:
         # Initialize game loop and controls
         self.active = Block()
         self.schedule_game_loop()  # Start the game loop
-        turtle.ontimer(self.gameloop, 300)
         turtle.onkeypress(self.rotate, 'Up')
         turtle.onkeypress(self.move_left, 'Left')
         turtle.onkeypress(self.move_right, 'Right')
