@@ -6,4 +6,4 @@ You can click on my GitHub Pages link and try it out! It has all the same rules 
 ## How Was It Coded?
 This app was developed using Python, and for graphics use the Python Turtle module.
 ## Where Can I Try It Out?
-If you would like to test out the app, simply try it out using my Github Pages! 
+If you would like to test out the app, simply download it and run using your python interpreter!
