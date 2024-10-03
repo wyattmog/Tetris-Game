@@ -1,4 +1,4 @@
-# React Native Photography Settings Calculator
+# Python Tetris Game
 ## What Is It?
 This is a recreation of the famous game of Tetris. It sports a working point system, line elimination system, rotating system, restart system, fast drop system, and more.
 ## How Does It Work?
