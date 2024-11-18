@@ -30,30 +30,6 @@ class Game:
                         [None, None, None, None, None, None, None, None, None, None,],
                         [None, None, None, None, None, None, None, None, None, None,],
                         [None, None, None, None, None, None, None, None, None, None,]]
-        # self.occupied = [
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,],
-        #                  [False, False, False, False, False, False, False, False, False, False,]]
-        #Bottom left corner of screen is (-1.5,-1.5)
         #Top right corner is (10.5, 20.5)
         turtle.setworldcoordinates(-1.5, -1.5, 10.5, 20.5)
         cv = turtle.getcanvas()
@@ -139,7 +115,8 @@ class Game:
             return False
         else:
             self.lock_block()
-            self.check_complete_lines()
+            while (self.check_complete_lines() != 0):
+                continue
             self.active = Block()
             self.score += 10  # Increment score as an example
             self.update_score_display()  # Update score display
@@ -165,7 +142,7 @@ class Game:
         t.color("black")
         t.write("Press 'R' to Restart", align="center", font=("Deja Vu Sans Mono", 24, "bold"))
         t.color("red")
-        t.write("Press 'R' to Restart", align="center", font=("Deja Vu Sans Mono", 24, "normal"))
+        t.write("Press 'R' to Restart", align="center", font=("Deja Vu Sans Mono", 26, "normal"))
     def disable_input(self):
         turtle.onkeypress(None, 'Left')
         turtle.onkeypress(None, 'Right')
@@ -192,6 +169,7 @@ class Game:
         if lines_cleared > 0:
             self.score += lines_cleared * 100  # Increase score by 100 points per line cleared
             self.update_score_display()
+        return lines_cleared
 
     def clear_line(self, row):
         for square in self.occupied[row]:
